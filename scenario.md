@@ -34,18 +34,18 @@ automatiquement la moyenne et la médiane du groupe.
     - Son **adresse email** (ex : `alain.dupont@iut.fr`)
     - La **date de l'examen** (ex : `12/05/2026`)
 - La classe `UtilisateurTab` stocke ces informations.
-- ⚠️ Si l'adresse email n'est pas au bon format, le programme affiche une erreur
+-  Si l'adresse email n'est pas au bon format, le programme affiche une erreur
   et redemande la saisie.
 
 ### Étape 3 — Saisie de la taille du tableau
 - Le programme demande le **nombre d'étudiants** à noter.
 - La valeur doit être un entier strictement positif.
-- ⚠️ Si la valeur est invalide (négative ou nulle), le programme redemande la saisie.
+-  Si la valeur est invalide (négative ou nulle), le programme redemande la saisie.
 
 ### Étape 4 — Saisie des notes
 - Pour chaque étudiant (de 1 à n), le programme demande une note.
 - Les notes sont stockées dans un `ArrayList<Integer>` dans la classe `CalculTab`.
-- ⚠️ Les notes doivent être comprises entre 0 et 20.
+-  Les notes doivent être comprises entre 0 et 20.
 
 ### Étape 5 — Calcul des statistiques
 La classe `CalculTab` effectue les calculs suivants :
