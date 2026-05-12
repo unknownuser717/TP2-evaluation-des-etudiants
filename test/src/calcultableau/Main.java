@@ -68,10 +68,17 @@ public class Main {
 
         // SAISIE DES NOTES
         System.out.println("DEBUT DE SAISIE DES NOTES");
-        for (int i = 0; i < n; i++) {
-            System.out.println("Note de l'étudiant " + (i + 1) + " :");
-            calcul.ajouterNote(sc.nextInt());
-        }
+       for (int i = 0; i < n; i++) {
+          int note = -1;
+          do {
+             System.out.println("Note de l'étudiant " + (i + 1) + " (0-20) :");
+             note = sc.nextInt();
+             if (note < 0 || note > 20) {
+                System.out.println("⚠ Note invalide, veuillez entrer une valeur entre 0 et 20.");
+             }
+          } while (note < 0 || note > 20);
+          calcul.ajouterNote(note);
+       }
 
         // AFFICHAGE
         System.out.println("\n" + calcul.afficherNotes());
