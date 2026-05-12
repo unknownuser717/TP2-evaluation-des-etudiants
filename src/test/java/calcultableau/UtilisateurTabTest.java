@@ -1,4 +1,4 @@
-package test.java.calcultableau;
+package calcultableau;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -9,7 +9,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.*;
-
 /**
  * Tests unitaires de la classe {@link UtilisateurTab}.
  *
