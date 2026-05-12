@@ -1,59 +1,94 @@
 package calcultableau;
 import java.util.*;
-// Somme des éléments d'un tableau d'entiers
+import java.io.*;
+import java.time.LocalDate;
+
 public class CalculTab {
-    public static void main(String[] args) {
-        int tab[] = new int[50];
-        int i;
-        int n = 0;
-        int Sum = 0;
-        int moy;
-// LA TAILLE DU TABLEAU
-        do {
-            System.out.println("Veuillez entrer la taille du tableau");
-            Scanner sc = new Scanner(System.in);
-            n = sc.nextInt();
-        } while (n > 50);
-// REMPLISSAGE DE TABLEAU
-        System.out.println("DEBUT PROGRAMME");
-        for (i = 0; i < n; i++) {
-            System.out.println("Veuillez entrer un nombre");
-            Scanner sc1 = new Scanner(System.in);
-            tab[i] = sc1.nextInt();
-        }
-// AFFICHAGE DE TABLEAU
-        System.out.println("Les élements de tableau sont : ");
-        for (i = 0; i < n; i++) {
-            System.out.println(tab[i]);
-        }
-// AFFICHAGE DE SOMME
-        for (i = 0; i < n; i++) {
-            Sum += tab[i];
-        }
-        System.out.println("La somme des éléments est égale à " + Sum);
+   public static void main(String[] args) throws IOException {
 
-// AFFICHAGE DE MOYENNE
-        moy = Sum/n;
-        System.out.println("moyenne = " + moy);
+      // IDENTIFIANTS ENSEIGNANT
+      String prenom = "Alain";
+      String nom = "Dupont";
+      String email = "alain.dupont@iut.fr";
+      LocalDate dateExamen = LocalDate.now();
 
+      int tab[] = new int[50];
+      int i;
+      int n = 0;
+      int Sum = 0;
 
-// CALCUL DE MEDIANE
-       // 1. Copier les n éléments dans un tableau de taille exacte
-       int[] tabTrie = Arrays.copyOf(tab, n);
-       // 2. Trier le tableau
-       Arrays.sort(tabTrie);
+      // LA TAILLE DU TABLEAU
+      Scanner sc = new Scanner(System.in);
+      do {
+         System.out.println("Veuillez entrer le nombre d'étudiants (max 50) :");
+         n = sc.nextInt();
+      } while (n <= 0 || n > 50);
 
-       double mediane;
-       if (n % 2 == 1) {
-          // Nombre impair → élément du milieu
-          mediane = tabTrie[n / 2];
-       } else {
-          // Nombre pair → moyenne des deux éléments du milieu
-          mediane = (tabTrie[n / 2 - 1] + tabTrie[n / 2]) / 2.0;
-       }
-       System.out.println("La médiane est égale à " + mediane);
+      // SAISIE DES NOTES
+      System.out.println("DEBUT DE SAISIE DES NOTES");
+      for (i = 0; i < n; i++) {
+         System.out.println("Note de l'étudiant " + (i + 1) + " :");
+         tab[i] = sc.nextInt();
+      }
 
-       System.out.println("FIN PROGRAMME");
+      // AFFICHAGE DES NOTES
+      System.out.println("\nLes notes saisies sont : ");
+      for (i = 0; i < n; i++) {
+         System.out.println("  Étudiant " + (i + 1) + " : " + tab[i]);
+      }
 
-    }
+      // CALCUL DE LA SOMME
+      for (i = 0; i < n; i++) {
+         Sum += tab[i];
+      }
+
+      // CALCUL DE LA MOYENNE
+      double moyenne = (double) Sum / n;
+
+      // CALCUL DE LA MEDIANE
+      int[] tabTrie = Arrays.copyOf(tab, n);
+      Arrays.sort(tabTrie);
+
+      double mediane;
+      if (n % 2 == 1) {
+         mediane = tabTrie[n / 2];
+      } else {
+         mediane = (tabTrie[n / 2 - 1] + tabTrie[n / 2]) / 2.0;
+      }
+
+      // AFFICHAGE DES RESULTATS
+      System.out.println("\n===== RESULTATS =====");
+      System.out.println("Nombre d'étudiants : " + n);
+      System.out.printf("Moyenne            : %.2f%n", moyenne);
+      System.out.printf("Médiane            : %.1f%n", mediane);
+      System.out.println("=====================");
+
+      // SAUVEGARDE DANS UN FICHIER
+      FileWriter fw = new FileWriter("resultats.txt", true); // true = append
+      BufferedWriter bw = new BufferedWriter(fw);
+
+      bw.write("===== RAPPORT DE NOTES =====");
+      bw.newLine();
+      bw.write("Prénom       : " + prenom);
+      bw.newLine();
+      bw.write("Nom          : " + nom);
+      bw.newLine();
+      bw.write("Email        : " + email);
+      bw.newLine();
+      bw.write("Date examen  : " + dateExamen);
+      bw.newLine();
+      bw.write("Nb étudiants : " + n);
+      bw.newLine();
+      bw.write(String.format("Moyenne      : %.2f", moyenne));
+      bw.newLine();
+      bw.write(String.format("Médiane      : %.1f", mediane));
+      bw.newLine();
+      bw.write("============================");
+      bw.newLine();
+      bw.newLine();
+
+      bw.close();
+      System.out.println("\nRésultats sauvegardés dans 'resultats.txt' ✓");
+      System.out.println("FIN PROGRAMME");
+   }
 }
