@@ -36,6 +36,24 @@ public class CalculTab {
         moy = Sum/n;
         System.out.println("moyenne = " + moy);
 
-        System.out.println("FIN PROGRAMME");
+
+// CALCUL DE MEDIANE
+       // 1. Copier les n éléments dans un tableau de taille exacte
+       int[] tabTrie = Arrays.copyOf(tab, n);
+       // 2. Trier le tableau
+       Arrays.sort(tabTrie);
+
+       double mediane;
+       if (n % 2 == 1) {
+          // Nombre impair → élément du milieu
+          mediane = tabTrie[n / 2];
+       } else {
+          // Nombre pair → moyenne des deux éléments du milieu
+          mediane = (tabTrie[n / 2 - 1] + tabTrie[n / 2]) / 2.0;
+       }
+       System.out.println("La médiane est égale à " + mediane);
+
+       System.out.println("FIN PROGRAMME");
+
     }
 }
