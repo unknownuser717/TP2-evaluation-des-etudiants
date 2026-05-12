@@ -1,4 +1,3 @@
-
 package calcultableau;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -13,8 +12,6 @@ import java.util.ArrayList;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.*;
-
-
 
 /**
  * Tests unitaires de la classe {@link CalculTab}.

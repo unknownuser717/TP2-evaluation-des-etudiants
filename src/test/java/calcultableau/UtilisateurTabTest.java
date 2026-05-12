@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.*;
+
 /**
  * Tests unitaires de la classe {@link UtilisateurTab}.
  *
