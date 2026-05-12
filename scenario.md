@@ -114,6 +114,7 @@ Enseignant          Principale          UtilisateurTab       CalculTab
 
 ---
 
+
 ## Exigences de qualité
 
 - Nommage **clair et lisible** (camelCase, PascalCase)
