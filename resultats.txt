@@ -68,3 +68,13 @@ Moyenne      : 10.00
 Médiane      : 10.0
 ============================
 
+===== RAPPORT DE NOTES =====
+Prénom      : Alain
+Nom         : Dupont
+Email       : alain.dupont@iut.fr
+Date examen : 2026-05-12
+Nb étudiants : 12
+Moyenne      : 12.00
+Médiane      : 12.0
+============================
+
