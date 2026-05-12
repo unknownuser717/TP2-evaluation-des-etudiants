@@ -10,6 +10,7 @@ automatiquement la moyenne et la médiane du groupe.
 
 ## Acteurs
 
+
 | Acteur         | Rôle                                                      |
 |----------------|-----------------------------------------------------------|
 | Alain Dupont   | Enseignant, utilisateur principal de l'application        |
