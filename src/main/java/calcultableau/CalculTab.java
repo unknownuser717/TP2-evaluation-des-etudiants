@@ -2,7 +2,6 @@ package calcultableau;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Locale;
 
 /**
  * Classe responsable du stockage et du traitement des notes des étudiants.
@@ -40,6 +39,9 @@ public class CalculTab {
      * @param note la note à ajouter (valeur entière, généralement entre 0 et 20)
      */
     public void ajouterNote(int note) {
+        if (note < 0 || note > 20) {
+            throw new IllegalArgumentException("La note doit être comprise entre 0 et 20, valeur reçue : " + note);
+        }
         notes.add(note);
     }
 
@@ -160,8 +162,8 @@ public class CalculTab {
         StringBuilder sb = new StringBuilder();
         sb.append("===== RESULTATS =====\n");
         sb.append("Nb étudiants : ").append(getNbEtudiants()).append("\n");
-        sb.append(String.format(Locale.US, "Moyenne      : %.2f%n", calculerMoyenne()));
-        sb.append(String.format(Locale.US, "Médiane      : %.1f%n", calculerMediane()));
+        sb.append(String.format("Moyenne      : %.2f%n", calculerMoyenne()));
+        sb.append(String.format("Médiane      : %.1f%n", calculerMediane()));
         sb.append("=====================");
         return sb.toString();
     }
