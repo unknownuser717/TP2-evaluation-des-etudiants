@@ -25,6 +25,7 @@ public class CalculTab {
       for (i = 0; i < n; i++) {
          System.out.println(tab[i]);
       }
+
 // AFFICHAGE DE SOMME
       for (i = 0; i < n; i++) {
          Sum += tab[i];
